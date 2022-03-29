@@ -1,0 +1,78 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Username')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-username" class="form-control" name="row[username]" type="text" value="{$row.username|htmlentities}">
+        </div>
+    </div>
+
+  <div class="form-group">
+    <label class="control-label col-xs-12 col-sm-2">密码:</label>
+    <div class="col-xs-12 col-sm-8">
+      <input id="c-password" class="form-control" name="row[password]" type="text" value="">
+    </div>
+  </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Mobile')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-mobile" class="form-control" name="row[mobile]" type="text" value="{$row.mobile|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Avatar')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-avatar" class="form-control" size="50" name="row[avatar]" type="text" value="{$row.avatar|htmlentities}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-avatar" class="btn btn-danger faupload" data-input-id="c-avatar" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-avatar"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-avatar" class="btn btn-primary fachoose" data-input-id="c-avatar" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-avatar"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-avatar"></ul>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-xs-12 col-sm-2">{:__('Gender')}:</label>
+      <div class="col-xs-12 col-sm-8">
+        {:build_radios('row[gender]', ['1'=>'女', '2'=>'男'], $row['gender'] == '女' ? '1' : '2')}
+      </div>
+    </div>
+
+
+  <div class="form-group">
+    <label class="control-label col-xs-12 col-sm-2">是否店长(店长可以查看门店所有订单):</label>
+    <div class="col-xs-12 col-sm-8">
+      {:build_radios('row[is_marage]', ['1'=>'是', '0'=>'否'], $row['is_marage'])}
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="control-label col-xs-12 col-sm-2">设备ID信息:</label>
+    <div class="col-xs-12 col-sm-8">
+      <input id="c-device-id" class="form-control" name="row[device_id]" type="text" value="{$row.device_id|htmlentities}">
+    </div>
+  </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">所属诊所:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-store_id" data-rule="required" data-source="stores/stores_factor" class="form-control selectpage" name="row[store_id]" type="text" value="{$row.store_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

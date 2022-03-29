@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>{$site.name|htmlentities}</title>
+        <link rel="shortcut icon" href="__CDN__/assets/img/favicon.ico" />
+        <!-- Bootstrap Core CSS -->
+        <link href="__CDN__/assets/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="__CDN__/assets/css/index.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://cdn.staticfile.org/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body id="page-top">
+
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+
+          <a class="navbar-brand page-scroll" href="">长沙市点讯网络科技有限公司</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-menu">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{:url('/')}">{:__('Home')}</a></li>
+            <!--                        <li><a href="{:url('index/user/index')}">{:__('Member center')}</a></li>-->
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+
+    <main id="mainbody">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="index-text">
+             <img width="200px;" src="/1.jpg" />
+              <img width="200px;" src="/2.jpg" />
+              <img width="200px;" src="/3.jpg" />
+              <img width="200px;" src="/4.jpg" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+
+
+        <footer>
+            <div >
+                <p style="color: white;">Copyright @ 2017~{:date('Y',time())} 版权所有 <a  style="color: white;" href="https://beian.miit.gov.cn" target="_blank">{$site.beian|htmlentities}</a></p>
+            </div>
+        </footer>
+
+        <script src="__CDN__/assets/libs/jquery/dist/jquery.min.js"></script>
+
+        <script src="__CDN__/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+
+</html>

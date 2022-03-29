@@ -1,0 +1,345 @@
+
+<style type="text/css">
+  body { background: #333; }img { border: 0; max-width: 100%; } .page-header h1 {  font-size: 3.26em;  text-align: center;  color: #efefef;  text-shadow: 1px 1px 0 #000;} /** timeline box structure **/.timeline {  list-style: none;  padding: 20px 0 20px;  position: relative;} .timeline:before {  top: 0;  bottom: 0;  position: absolute;  content: " ";  width: 3px;  background-color: #eee;  left: 50%;  margin-left: -1.5px;} .tldate {  display: block;  width: 200px;  background: #414141;  border: 3px solid #212121;  color: #ededed;  margin: 0 auto;  padding: 3px 0;  font-weight: bold;  text-align: center;  -webkit-box-shadow: 0 0 11px rgba(0,0,0,0.35);} .timeline li {  margin-bottom: 25px;  position: relative;}
+  /** timeline panels **/.timeline li .timeline-panel {  width: 46%;  float: left;  background: #fff;  border: 1px solid #d4d4d4;  padding: 20px;  position: relative;  -webkit-border-radius: 8px;  -moz-border-radius: 8px;  border-radius: 8px;  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);  -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);} /** panel arrows **/.timeline li .timeline-panel:before {  position: absolute;  top: 26px;  right: -15px;  display: inline-block;  border-top: 15px solid transparent;  border-left: 15px solid #ccc;  border-right: 0 solid #ccc;  border-bottom: 15px solid transparent;  content: " ";} .timeline li .timeline-panel:after {  position: absolute;  top: 27px;  right: -14px;  display: inline-block;  border-top: 14px solid transparent;  border-left: 14px solid #fff;  border-right: 0 solid #fff;  border-bottom: 14px solid transparent;  content: " ";}.timeline li .timeline-panel.noarrow:before, .timeline li .timeline-panel.noarrow:after {  top:0;  right:0;  display: none;  border: 0;} .timeline li.timeline-inverted .timeline-panel {  float: right;} .timeline li.timeline-inverted .timeline-panel:before {  border-left-width: 0;  border-right-width: 15px;  left: -15px;  right: auto;} .timeline li.timeline-inverted .timeline-panel:after {  border-left-width: 0;  border-right-width: 14px;  left: -14px;  right: auto;}
+
+
+</style>
+
+<input type="hidden" value="{$data.cases_image.order_id}" id="order_id">
+<input type="hidden" value="{$data.plan_info.id}" id="plan_id">
+
+
+<div style="text-align: center;font-size: 20px;color: #193abb;">
+  当前状态:{$data.cases_image.status_text}({$data.cases_image.order_id})
+</div>
+
+
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#home" data-toggle="tab">基本信息</a></li>
+  {if $group_id == 1}
+  <li><a href="#bingli" data-toggle="tab">病例图</a></li>
+  <li><a href="#fangans" data-toggle="tab">设计or方案</a></li>
+
+  {/if}
+  {if $group_id == 6 || $group_id == 1}
+  <li><a href="#zhouqi" data-toggle="tab">矫治周期</a></li>
+  {/if}
+
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade in active" id="home">
+        <div class="row"  style="margin-top: 30px;">
+          <div class="col-xs-6 col-sm-3" >客户名:{$data.user.username}</div>
+          <div class="col-xs-6 col-sm-3" >客户电话:{$data.user.mobile}</div>
+          <div class="col-xs-6 col-sm-3" >客户性别:{$data.user.gender}</div>
+        </div>
+
+        <div style="margin-top: 30px;">
+          <div>邮寄模型 </div>
+          <div class="input-group" style="margin-top: 10px;">
+            快递单号：{$data.mail_file.courier_code}
+          </div>
+
+          <div class="input-group" style="margin-top: 10px;">
+            快递公司： {$data.mail_file.courier_name}
+          </div>
+        </div>
+
+
+        <div style="margin-top: 40px;">
+          <div>
+            口扫文件
+          </div>
+          <div class="input-group" style="margin-top: 10px;">
+            文件地址:<a href="{$data.mail_file.file_url}">{$data.mail_file.file_url}</a>
+          </div>
+        </div>
+
+  </div>
+
+  <div class="tab-pane fade" id="bingli">
+   <div style="float: right;margin-top: 20px;margin-right: 20px;">
+     <button class="btn btn-primary btn-lg" >保存</button>
+   </div>
+
+    <span style="color: #0a6aa1;font-size: 18px;">面向照</span>
+    <div class="row"  style="margin-top: 30px;">
+     <div class="col-xs-4 col-sm-2" style="text-align: center;" >
+      <img  width="150px" height="200px" src="{$data.cases_image.oriented_zm}" class="img-rounded ">
+       <div>正面</div>
+     </div>
+
+      <div class="col-xs-4 col-sm-3" style="text-align: center;" >
+        <img width="150px"  height="200px" src="{$data.cases_image.oriented_zmwx}" class="img-rounded">
+        <div>正面微笑</div>
+      </div>
+
+      <div class="col-xs-4 col-sm-3" style="text-align: center;" >
+        <img width="150px"  height="200px" src="{$data.cases_image.oriented_cm}" class="img-rounded">
+        <div>侧面</div>
+      </div>
+   </div>
+
+
+    <span style="color: #0a6aa1;font-size: 18px;margin-top: 40px;">口内照</span>
+
+    <div class="row"  style="margin-top: 30px;">
+      <div class="col-xs-4 " style="text-align: center;" >
+        <img width="150px"  height="200px" src="{$data.cases_image.oral_sehm}" class="img-rounded">
+        <div>上颌合面像</div>
+      </div>
+
+      <div class="col-xs-4" style="text-align: center;" >
+        <img width="150px"  height="200px" src="{$data.cases_image.oral_xehm}" class="img-rounded">
+        <div>下颌合面像</div>
+      </div>
+
+      <div class="col-xs-4" style="text-align: center;" >
+        <img width="150px"  height="200px" src="{$data.cases_image.oral_zm}" class="img-rounded">
+        <div>口内正面照</div>
+      </div>
+
+      <div class="col-xs-4" style="text-align: center;" >
+        <img width="150px"  height="200px" src="{$data.cases_image.oral_cm}" class="img-rounded">
+        <div>口内侧面照</div>
+      </div>
+
+      <div class="col-xs-4" style="text-align: center;" >
+        <img width="150px" src="{$data.cases_image.oral_yc}" class="img-rounded">
+        <div>口内右侧位</div>
+      </div>
+
+      <div class="col-xs-4" style="text-align: center;" >
+        <img width="150px"  height="200px" src="{$data.cases_image.oral_zc}" class="img-rounded">
+        <div>口内左侧位</div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="tab-pane fade" id="fangans">
+    <div style="float: right;margin-top: 10px;margin-right: 20px;">
+      <button class="btn btn-primary btn-lg"  id="plan">保存</button>
+    </div>
+
+    <form class="form-horizontal" role="form" data-toggle="validator" >
+    <div>
+      <span style="color: #0a6aa1;font-size: 18px;margin-top: 50px;">意见</span>
+    </div>
+
+    <div style="margin-top: 20px;">
+     <textarea class="form-control" id="node" rows="3">{$data.plan_info.node}</textarea>
+
+    </div>
+
+
+    <div class="form-group"  style="margin-top: 10px;">
+      <label for="name">建议价格</label>
+      <input type="text" class="form-control" id="amount" value="1600" placeholder="请输入建议价格">
+    </div>
+
+
+    <div class="form-group"  style="margin-top: 10px;">
+      <label for="name">建议周期</label>
+      <input type="text" class="form-control" id="cycle" value="{$data.plan_info.cycle}" placeholder="请输入建议价格">
+    </div>
+
+
+  <div style="margin-top: 30px;">
+    <span style="color: #0a6aa1;font-size: 18px;margin-top: 40px;">效果图</span>
+  </div>
+
+    <div class="form-group">
+      <div class="col-xs-12 col-sm-8">
+        <div class="input-group">
+          <input id="images" data-rule="" class="form-control" size="50"  type="hidden" value="{$data.plan_info.images}">
+          <div class="input-group-addon no-border no-padding">
+            <span>
+              <button type="button" id="faupload-avatar" data-multiple="true" class="btn btn-danger faupload" data-input-id="images" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-avatar"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+
+          </div>
+          <span class="msg-box n-right" for="images"></span>
+        </div>
+        <ul class="row list-inline faupload-preview" id="p-avatar"></ul>
+      </div>
+    </div>
+
+    </form>
+
+
+    <div style="margin-top: 10px;">
+      {volist name="$data.plan_info.images" id="vo"}
+      <img width="150px" src="{$vo}" class="img-thumbnail">
+      {/volist}
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="zhouqi">
+    <div style="float: right;z-index: 100;  margin-top: -40px;margin-right: 20px;">
+      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#zhouqi_modal">周期发货</button>
+    </div>
+
+  <div style="margin-top: 40px;">
+    <ul class="timeline">
+      <li><div class="tldate">矫治周期</div></li>
+
+      {volist name="$data.cycle_arr" id="vo"}
+
+      <li class="{$vo.class_name}">
+        <div class="tl-circ"></div>
+        <div class="timeline-panel">
+          <div class="tl-heading">
+            <h4>牙齿正畸第{$vo.cycle}期</h4>
+            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {$vo.time_text}</small></p>
+          </div>
+          <div class="tl-body">
+            <p>快递公司:{$vo.courier_name}</p>
+          </div>
+
+          <div class="tl-body">
+            <p>快递单号:{$vo.courier_code}</p>
+          </div>
+        </div>
+      </li>
+      {/volist}
+
+
+
+    </ul>
+  </div>
+
+
+
+  </div>
+
+</div>
+
+
+
+
+<div class="modal fade" id="zhouqi_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">周期发货</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">快递单号</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="courier_code" name="courier_code" placeholder="请输入快递单号">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastname" class="col-sm-2 control-label">快递公司</label>
+            <div class="col-sm-10">
+              <select class="form-control" id="courier_id" name="courier_id">
+                {volist name="$data.courier_arr" id="vo"}
+                 <option value="{$vo.id}">{$vo.company}</option>
+                {/volist}
+              </select>
+
+              </div>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" id="zhouqi_sub">提交</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+<div id="window-img" style="display: none"></div>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+
+
+<script>
+  $(function() {
+
+    $('#zhouqi_modal').modal('hide')
+  });
+</script>
+<script>
+  $(function() {
+    $('#zhouqi_modal').on('hide.bs.modal')
+
+    $("#bingli").find("img").on('click', function() {
+      var curImgUrl = this.src;
+      windowImg(curImgUrl);
+    });
+
+    function windowImg(imgUrl) {
+      $('#window-img').empty();
+      var img = "<img class='window-img' src='" + imgUrl + "' width='100%' />";
+      $('#window-img').append(img);
+
+      layer.open({
+        type: 1,
+        title: false,
+        //resize:false,
+        shadeClose: true, //点击遮罩关闭
+        content: $('#window-img'),
+        area: 'auto',
+        maxWidth: 600,
+        cancel: function() {
+          $('#window-img').css('display', 'none');
+        },
+        end: function() {
+          $('#window-img').css('display', 'none');
+        }
+      });
+    }
+
+    $('#zhouqi_sub').click(function(){
+       var courier_code = $('#courier_code').val();
+       var courier_id = $('#courier_id').val();
+       var order_id = $('#order_id').val();
+       $.post('order/cycle',{courier_code:courier_code,courier_id:courier_id,order_id:order_id},function(res){
+         if(!res){
+           Toastr.success('保存成功')
+         }else{
+           Toastr.error('保存失败')
+         }
+         window.location.reload()
+       });
+    });
+
+    $('#plan').click(function(){
+      var cycle = $('#cycle').val();
+      var amount = $('#amount').val();
+      var node = $('#node').val();
+      var plan_id = $('#plan_id').val();
+      var order_id = $('#order_id').val();
+      var images = $('#images').val();
+      $.post('order/plan',{node:node,cycle:cycle,amount:amount,plan_id:plan_id,order_id:order_id,images:images},function(res){
+        if(!res){
+          Toastr.success('保存成功')
+        }else{
+          Toastr.error('保存失败')
+        }
+        window.location.reload()
+      });
+    });
+
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

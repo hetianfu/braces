@@ -1,0 +1,124 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Order_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-order_id" data-rule="required" data-source="order/index" class="form-control selectpage" name="row[order_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Shop_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-shop_id" data-rule="required" data-source="shop/index" class="form-control selectpage" name="row[shop_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Stores_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-stores_id" data-rule="required" data-source="stores/index" class="form-control selectpage" name="row[stores_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-status" class="form-control" name="row[status]" type="number" value="1">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Amount')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-amount" class="form-control" step="0.01" name="row[amount]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Cycle')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-cycle" class="form-control" name="row[cycle]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Current_cycle')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-current_cycle" class="form-control" name="row[current_cycle]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('User_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user_id" data-rule="required" data-source="user/user/index" data-field="nickname" class="form-control selectpage" name="row[user_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Oriented_zm')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-oriented_zm" class="form-control" name="row[oriented_zm]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Oriented_zmwx')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-oriented_zmwx" data-rule="required" class="form-control" name="row[oriented_zmwx]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Oriented_cm')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-oriented_cm" class="form-control" name="row[oriented_cm]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Oral_sehm')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-oral_sehm" data-rule="required" class="form-control" name="row[oral_sehm]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Oral_xehm')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-oral_xehm" data-rule="required" class="form-control" name="row[oral_xehm]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Oral_zm')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-oral_zm" data-rule="required" class="form-control" name="row[oral_zm]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Oral_cm')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-oral_cm" data-rule="required" class="form-control" name="row[oral_cm]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Oral_yc')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-oral_yc" class="form-control" name="row[oral_yc]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Oral_zc')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-oral_zc" class="form-control" name="row[oral_zc]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Agent_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-agent_id" data-rule="required" data-source="agent/index" class="form-control selectpage" name="row[agent_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Factory_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-factory_id" data-rule="required" data-source="factory/index" class="form-control selectpage" name="row[factory_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
